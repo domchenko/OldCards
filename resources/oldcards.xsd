@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  xmlns:authorspace="http://www.example.net/test"> 
+
+<xs:import schemaLocation="authorspace.xsd" namespace="http://www.example.net/test"/>
+    
+<xs:simpleType name="str">
+   <xs:restriction base="xs:string">
+     <xs:minLength value="1"/>
+     <xs:whiteSpace value="collapse"/>
+   </xs:restriction>
+</xs:simpleType>
+
+
+<!-- Elements declaration -->
+<xs:element name="oldcard" type="oldcardType">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">An old card</xs:documentation>
+  </xs:annotation>
+</xs:element>
+<xs:element name="theme" type="str">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">A short description, name of the picture, etc.</xs:documentation>
+  </xs:annotation>
+</xs:element>
+<xs:element name="type" type="cardtypeType">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">A type of the card</xs:documentation>
+  </xs:annotation>
+</xs:element>
+<xs:element name="country" type="str">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">A country of origin</xs:documentation>
+  </xs:annotation>
+</xs:element>
+<xs:element name="year" type="yearType">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">A year of publishing</xs:documentation>
+  </xs:annotation>
+</xs:element>
+<xs:element name="authors" type="authorsType">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">The authors of the card</xs:documentation>
+  </xs:annotation>
+</xs:element>
+<xs:element name="author" type="authorspace:authorType">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">An author details</xs:documentation>
+  </xs:annotation>
+</xs:element>
+<xs:element name="valuable">
+  <xs:simpleType>
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A valuable of the card</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Historical"/>
+      <xs:enumeration value="Thematic"/>
+      <xs:enumeration value="Collection"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+
+<xs:element name="oldcards">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="oldcard" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:complexType name="oldcardType">    
+  <xs:sequence>
+    <xs:element ref="theme"/>
+    <xs:element ref="type"/>
+    <xs:element ref="country"/>
+    <xs:element ref="year"/>
+    <xs:element ref="authors" minOccurs="0"/>
+    <xs:element ref="valuable"/>
+  </xs:sequence>
+  <xs:attribute name="id" type="xs:ID" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="yearType">
+  <xs:restriction base="xs:integer">
+    <xs:minInclusive value="1600"/>
+    <xs:maxInclusive value="2016"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="cardtypevalueType">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Simple"/>
+    <xs:enumeration value="Congratulatory"/>
+    <xs:enumeration value="Promotional"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="cardtypeType"> 
+  <xs:simpleContent>
+    <xs:extension base="cardtypevalueType">
+      <xs:attribute name="isSent">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="yes|no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="authorsType">    
+  <xs:sequence>
+    <xs:element ref="author" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+</xs:schema>

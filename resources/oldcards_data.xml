@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oldcards xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="oldcards.xsd"
+  xmlns:authorspace="http://www.example.net/test">
+  <oldcard id="ID1">
+    <theme>Architecture</theme>
+    <type isSent="yes">Simple</type>
+    <country>Spain</country>
+    <year>1875</year>
+    <authors>
+      <author>
+        <authorspace:name>Antonio</authorspace:name>
+        <authorspace:surname>Gaudi</authorspace:surname>
+      </author>
+    </authors>
+    <valuable>Historical</valuable>
+  </oldcard>
+  
+  <oldcard id="ID2">
+    <theme>Flowers</theme>
+    <type isSent="no">Congratulatory</type>
+    <country>Ukraine</country>
+    <year>1986</year>
+    <authors>
+      <author>
+        <authorspace:name>Kateryna</authorspace:name>
+        <authorspace:surname>Bilokur</authorspace:surname>
+      </author>
+    </authors>
+    <valuable>Collection</valuable>
+  </oldcard>
+  
+  <oldcard id="ID3">
+    <theme>Red Book Animals</theme>
+    <type isSent="yes">Congratulatory</type>
+    <country>Ukraine</country>
+    <year>2014</year>
+    <valuable>Thematic</valuable>
+  </oldcard>
+  
+  <oldcard id="ID4">
+    <theme>Hotels</theme>
+    <type isSent="yes">Promotional</type>
+    <country>USA</country>
+    <year>1911</year>
+    <authors>
+      <author>
+        <authorspace:name>Peter</authorspace:name> 
+        <authorspace:surname>Brown</authorspace:surname>
+      </author>
+      <author>
+        <authorspace:name>Elizabeth</authorspace:name>
+        <authorspace:surname>Crowdy</authorspace:surname>
+      </author>
+    </authors>
+    <valuable>Historical</valuable>
+  </oldcard>
+</oldcards>
